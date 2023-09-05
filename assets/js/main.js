@@ -4,6 +4,9 @@ const emailInput = document.querySelector("#email");
 const items = document.querySelector(".items");
 const errorName = document.querySelector(".name-Error");
 const errorEmail = document.querySelector(".email-Error");
+const user = document.querySelector("#add-user");
+
+user.innerHTML ="Login";
 
 submitButton.addEventListener('click', function (event) {
 
@@ -25,7 +28,7 @@ submitButton.addEventListener('click', function (event) {
             document.location.reload();
         }, 2000);
         // Se estiver nos parametros 
-        
+
     } else {
         items.style.display = "block";
         items.firstElementChild.textContent = nameValue;
