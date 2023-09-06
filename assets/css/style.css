@@ -21,35 +21,34 @@ ul li {
     margin: 5px 0;
 }
 
-header {
-    background: #111;
-    color: #eee;
-    padding: 1rem;
+h1 {
     text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
 }
 
 .container {
-    margin: auto;
+    margin: 0 auto;
     width: 500px;
     overflow: auto;
-    padding: 3rem 2rem;
+    padding: 15rem 1rem;
 }
 
 
 #my-form {
-    padding: 2rem;
-    background: #f4f4f4;
+    padding: 5rem;
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(54px);
+    -webkit-backdrop-filter: blur(54px);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.24);
     border-radius: 10px;
 }
 
-h1 {
-    text-align: center;
-    font-size: 2rem;
-}
 
 #my-form label {
     display: block;
 }
+
 
 #my-form input[type="text"] {
     display: block;
@@ -62,6 +61,10 @@ h1 {
 
 .items {
     display: none;
+}
+.item{
+    border-radius: 5px;
+    text-align: center;
 }
 
 .btn {
@@ -112,10 +115,16 @@ h1 {
     color: #fff;
 }
 
+#label-nome {
+    font-size: 0.9rem;
+    color: #ff0000;
+    font-weight: 200;
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+}
 
-footer {
-    background: #111;
-    color: #eee;
-    padding: 1rem;
-    text-align: center;
+#label-email {
+    font-size: 0.9rem;
+    color: #ff0000;
+    font-weight: 200;
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
 }
