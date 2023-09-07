@@ -8,6 +8,7 @@ const user = document.querySelector("#add-user");
 const labelInputEmail = document.querySelector("#label-email");
 const labelInputName = document.querySelector("#label-nome");
 
+
 // Implementando um h1 pelo JavaScript
 
 user.innerHTML = "Login";
@@ -43,10 +44,19 @@ submitButton.addEventListener('click', function (event) {
         // Se estiver nos parametros 
 
     } else {
+        // Essa forma cria uma Ul com elementos adicionados toda vez que a condiçao seja verdadeira
+        const li = document.createElement("li");
+        li.classList = "item";
+        li.innerHTML = `Nome: ${nameValue} <br />  E-mail: ${emailValue} `;
 
-        items.style.display = "block";
-        items.firstElementChild.textContent = nameValue;
-        items.children[1].textContent = emailValue;
+        items.appendChild(li);
+
+
+        // Essa forma cria uma tabela de dois elementos estaticos
+
+        // items.style.display = "block";
+        // items.firstElementChild.textContent = nameValue;
+        // items.children[1].textContent = emailValue;
 
         const Toast = Swal.mixin({
             toast: true,
