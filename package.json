@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "rickmortyapi": "^2.3.0",
     "sweetalert2": "^11.7.27"
   }
 }

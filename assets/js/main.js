@@ -1,3 +1,4 @@
+
 const submitButton = document.querySelector("#submit-button");
 const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");
@@ -9,7 +10,6 @@ const labelInputEmail = document.querySelector("#label-email");
 const labelInputName = document.querySelector("#label-nome");
 
 
-// Implementando um h1 pelo JavaScript
 
 user.innerHTML = "Login";
 
@@ -21,8 +21,6 @@ submitButton.addEventListener('click', function (event) {
     const nomeValue = nameInput.value;
     const emailValue = emailInput.value;
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // Expressão regular para verificar o formato do nome
     const regexNome = /^[A-Za-z\s]+$/;
 
 
@@ -35,10 +33,8 @@ submitButton.addEventListener('click', function (event) {
 
         items.appendChild(li);
 
-        // Essa forma cria uma tabela de dois elementos estaticos
-
         cadastroSuccess('Cadastro Feito com sucesso!')
-
+  
     }
     else {
         // Essa forma cria uma Ul com elementos adicionados toda vez que a condiçao seja verdadeira
@@ -103,4 +99,29 @@ submitButton.addEventListener('click', function (event) {
             title: vazio,
         })
     }
+   
+    function getRickAndMortyData() {
+        // Substitua a URL abaixo pelo endpoint real da API Rick and Morty
+        const apiUrl = 'https://rickandmortyapi.com/';
+
+        // Faz a requisição usando a função fetch
+        fetch(apiUrl)
+            .then(response => {
+                // Verifica se a resposta da requisição foi bem-sucedida (status 200 OK)
+                if (!response.ok) {
+                    throw new Error('Erro ao recuperar dados da API');
+                }
+                // Converte a resposta para JSON
+                return response.json();
+            })
+            .then(data => {
+                // Manipula os dados recebidos da API
+                console.log(data);
+                
+            })
+            .catch(error => {
+                // Trata erros durante a requisição
+                console.error('Erro na requisição:', error);
+            });
+        }
 });
