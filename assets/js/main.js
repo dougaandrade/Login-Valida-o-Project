@@ -18,46 +18,43 @@ submitButton.addEventListener('click', function (event) {
     event.preventDefault();
 
 
-    const nameValue = nameInput.value;
+    const nomeValue = nameInput.value;
     const emailValue = emailInput.value;
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Caso não esteja nos paramentros 
+    // Expressão regular para verificar o formato do nome
+    const regexNome = /^[A-Za-z\s]+$/;
 
-    if (nameValue.length == 0 && emailValue.length == 0) {
 
-        displayError(errorName);
-        displayError(errorEmail);
 
-        setTimeout(() => {
-            document.location.reload();
-        }, 7000);
+    if (regexEmail.test(emailValue) && regexNome.test(nomeValue)) {
 
-        function displayError(elemento) {
-            elemento.style.display = "block";
-            elemento.style.border = " solid red";
-            elemento.style.borderWidth = "1px";
-            labelInputEmail.innerHTML = "Insira um email valido!";
-            labelInputName.innerHTML = "Insira um nome valido!";
-
-        }
-
-        // Se estiver nos parametros 
-
-    } else {
-        // Essa forma cria uma Ul com elementos adicionados toda vez que a condiçao seja verdadeira
         const li = document.createElement("li");
         li.classList = "item";
-        li.innerHTML = `Nome: ${nameValue} <br />  E-mail: ${emailValue} `;
+        li.innerHTML = `Nome: ${nomeValue} <br />  E-mail: ${emailValue} `;
 
         items.appendChild(li);
 
-
         // Essa forma cria uma tabela de dois elementos estaticos
 
-        // items.style.display = "block";
-        // items.firstElementChild.textContent = nameValue;
-        // items.children[1].textContent = emailValue;
+        cadastroSuccess('Cadastro Feito com sucesso!')
 
+    }
+    else {
+        // Essa forma cria uma Ul com elementos adicionados toda vez que a condiçao seja verdadeira
+        displayError(errorName);
+        displayError(errorEmail);
+        campoVazio('Preencha Corretamente!');
+
+        setTimeout(() => {
+            document.location.reload();
+        }, 6000);
+
+
+    }
+
+
+    function cadastroSuccess(cadSuccess) {
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -72,10 +69,38 @@ submitButton.addEventListener('click', function (event) {
 
         Toast.fire({
             icon: 'success',
-            title: 'Cadastro Feito com sucesso!'
+            title: cadSuccess,
         })
+
+
+
+    }
+
+    function displayError(elemento) {
+        elemento.style.display = "block";
+        elemento.style.border = " solid red";
+        elemento.style.borderWidth = "1px";
+        labelInputEmail.innerHTML = "Insira um email valido!";
+        labelInputName.innerHTML = "Insira um nome valido!";
     }
 
 
+    function campoVazio(vazio) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
 
+        Toast.fire({
+            icon: 'error',
+            title: vazio,
+        })
+    }
 });
