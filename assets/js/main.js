@@ -29,7 +29,7 @@ submitButton.addEventListener('click', function (event) {
 
         const li = document.createElement("li");
         li.classList = "item";
-        li.innerHTML = `$Nome: ${nomeValue} <br />  E-mail: ${emailValue} `;
+        li.innerHTML = `Nome: ${nomeValue} <br />  Email: ${emailValue} `;
 
         items.appendChild(li);
 
