@@ -44,7 +44,7 @@ submitButton.addEventListener('click', function (event) {
 
         setTimeout(() => {
             document.location.reload();
-        }, 6000);
+        }, 1000);
 
 
     }
