@@ -29,7 +29,7 @@ submitButton.addEventListener('click', function (event) {
 
         const li = document.createElement("li");
         li.classList = "item";
-        li.innerHTML = `Nome: ${nomeValue} <br />  E-mail: ${emailValue} `;
+        li.innerHTML = `$Nome: ${nomeValue} <br />  E-mail: ${emailValue} `;
 
         items.appendChild(li);
 
@@ -48,7 +48,6 @@ submitButton.addEventListener('click', function (event) {
 
 
     }
-
 
     function cadastroSuccess(cadSuccess) {
         const Toast = Swal.mixin({
@@ -99,29 +98,5 @@ submitButton.addEventListener('click', function (event) {
             title: vazio,
         })
     }
-   
-    function getRickAndMortyData() {
-        // Substitua a URL abaixo pelo endpoint real da API Rick and Morty
-        const apiUrl = 'https://rickandmortyapi.com/';
 
-        // Faz a requisição usando a função fetch
-        fetch(apiUrl)
-            .then(response => {
-                // Verifica se a resposta da requisição foi bem-sucedida (status 200 OK)
-                if (!response.ok) {
-                    throw new Error('Erro ao recuperar dados da API');
-                }
-                // Converte a resposta para JSON
-                return response.json();
-            })
-            .then(data => {
-                // Manipula os dados recebidos da API
-                console.log(data);
-                
-            })
-            .catch(error => {
-                // Trata erros durante a requisição
-                console.error('Erro na requisição:', error);
-            });
-        }
 });
